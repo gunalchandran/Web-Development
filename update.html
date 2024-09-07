@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background-image: url('https://tse2.mm.bing.net/th?id=OIP.T3mkxdRILwCUVRWkvuPvqQHaEo&pid=Api&P=0&h=180');
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.container h2 {
+  font-size: 1.8rem;
+  color: #333333;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.container form {
+  padding: 20px;
+}
+
+.container input,
+.container button {
+  width: 100%;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.container input {
+  border: 1px solid #cccccc;
+  font-size: 1rem;
+  color: #333333;
+}
+
+.container button {
+  background-color: #6200ea;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.container button:hover {
+  background-color: #00b330;
+}
+
+.container .report-button {
+  background-color: #da3903;
+}
+
+.container .report-button a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <!-- <img src="https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="image"> -->
+    <h2>Registration Form</h2>
+    <form id="f" method="post">
+        <input type="text" placeholder="Name" name="name" required>
+        <input type="password" placeholder="Password" id="password" name="password" required>
+        <button type="submit">Update</button>
+        <button type="button" class="report-button"><a href="http://localhost:4055/report">Report</a></button>
+    </form>
+</div>
+<script>
+   const fullUrl = window.location.href;
+const segments = fullUrl.split('/');
+const name = segments[segments.length - 1];
+  const form = document.getElementById('f');
+  const baseUrl = 'http://localhost:4055/update/';
+  form.action = `${baseUrl}${name}`;
+</script>
+</body>
+</html>
